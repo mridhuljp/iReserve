@@ -4,15 +4,28 @@ class Reserve(object):
         self.line="=" * 25
 
 
-    def iLogin(self):
-        pass #### Comment to test the checkouts
-
-
     def UserExists(self):
         if self.Des_username in self.UsersTable.keys():
             return 0
         else:
             return 1
+
+    def iLogin(self):
+        print self.line
+        self.Des_username=raw_input("Username : ")
+        self.ifUserExists=self.UserExists()
+        print self.ifUserExists
+        if self.ifUserExists >0:
+            print "Sorry !! Invalid User"
+        else:
+            self.Des_password=raw_input("Password : ")
+            if self.UsersTable[self.Des_username] == self.Des_password:
+                print " User %s Successfully Logged in !!" %(self.Des_username)
+                self.HomeMenu()
+            else:
+                print "Sorry !!! Invalid credentials"
+                self.iLogin()
+
 
     def ValidatePass(self):
         if len(self.Des_password) <=3:
