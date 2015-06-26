@@ -1,12 +1,14 @@
 class Reserve(object):
     def __init__(self):
-        pass
+        self.line="=" * 25
 
     def iLogin(self):
         pass
 
     def iSignup(self):
-        pass
+        print self.line
+        self.Des_username=raw_input("Enter desired username : ")
+
 
     def HomeMenu(self):
         print "  !!!!!!!!!  Welcome to iReserve !!!!!!!!!!!!!"
