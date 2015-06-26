@@ -14,16 +14,19 @@ class Reserve(object):
         print self.line
         self.Des_username=raw_input("Username : ")
         self.ifUserExists=self.UserExists()
-        print self.ifUserExists
         if self.ifUserExists >0:
             print "Sorry !! Invalid User"
+            print self.line
+            self.iLogin()
         else:
             self.Des_password=raw_input("Password : ")
             if self.UsersTable[self.Des_username] == self.Des_password:
                 print " User %s Successfully Logged in !!" %(self.Des_username)
+                print self.line
                 self.HomeMenu()
             else:
                 print "Sorry !!! Invalid credentials"
+                print self.line
                 self.iLogin()
 
 
@@ -40,7 +43,7 @@ class Reserve(object):
         self.UsersTable[self.Des_username]=self.Des_password
         print "User Added Successfully !!!"
         print self.line
-        self.PrintUsers()
+        #self.PrintUsers()
         print self.line
         self.HomeMenu()
 
@@ -63,7 +66,8 @@ class Reserve(object):
         print "  !!!!!!!!!  Welcome to iReserve !!!!!!!!!!!!!"
         print " 1. Login : "
         print " 2. Signup : "
-        print " 3. Exit! : "
+        print " 3. Reserve : "
+        print " 4. Exit! : "
         print " ----------- "
         menuChoice=str(raw_input("Enter the input :"))
         if menuChoice == "1":
@@ -72,9 +76,36 @@ class Reserve(object):
             self.iSignup()
         elif menuChoice =="3":
             exit()
+        elif menuChoice="4":
+            self.iReserve()
         else:
             print "Option Invalid !!!!"
             self.HomeMenu()
+
+    def iReserve(self):
+        def iBook(self):
+            print "Book !!!"
+
+        def iCancel(self):
+            print "Cancel"
+
+        def iList(self):
+            print "List"
+
+        print "1. Book : "
+        print "2. Cancel: "
+        print "3. List : "
+        self.iResMenu=raw_input("Enter option : ")
+        if self.iResMenu == 1:
+            iBook(self)
+        elif self.iResMenu == 2:
+            iCancel(self)
+        elif self.iResMenu == 3:
+            iList(self)
+        else:
+            print "Invalid Option Selected "
+            self.iReserve()
+
 
 
 
