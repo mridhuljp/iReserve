@@ -8,10 +8,16 @@ class Reserve(object):
         pass
 
     def UserExists(self):
-        pass
+        if self.Des_username in self.UsersTable.keys():
+            return 0
+        else:
+            return 1
 
     def ValidatePass(self):
-        return 0
+        if len(self.Des_password) <=3:
+            return 1
+        else:
+            return 0
 
     def PrintUsers(self):
         print self.UsersTable
