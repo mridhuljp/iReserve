@@ -2,6 +2,7 @@ class Reserve(object):
     UsersTable={}
     srv1 =[]
     srv1.extend(range(1,21))
+    UserSession=False
     def __init__(self):
         self.line="=" * 25
 
@@ -24,6 +25,7 @@ class Reserve(object):
             self.Des_password=raw_input("Password : ")
             if self.UsersTable[self.Des_username] == self.Des_password:
                 print " User %s Successfully Logged in !!" %(self.Des_username)
+                self.UserSession=True
                 print self.line
                 self.HomeMenu()
             else:
@@ -87,26 +89,28 @@ class Reserve(object):
 
     def iReserve(self):
 
-        print self.line
-        print self.
-        print self.srv1
-        print self.line
-        print "Legend : 'B' - Booked Seat . 'R' - Reserved Seat"
-        print self.line
-        self.userseat=raw_input("Enter your choice :")
-        if int(self.userseat) > 20 or self.srv1[int(self.userseat)] =="B":
-            print "Sorry !! Seat Already booked !!!"
-            print self.line
-            self.iReserve()
-        else:
-            self.srv1[int(self.userseat) -1 ]=self.userseat.replace(self.userseat,"B")
-        print "Seat Booked Successfully !!!"
-        print self.srv1
-        self.HomeMenu()
-
 
         def iBook(self):
             print "Book !!!"
+            print self.line
+            while (self.UserSession):
+                print self.srv1
+                print self.line
+                print "Legend : 'B' - Booked Seat . 'R' - Reserved Seat"
+                print self.line
+                self.userseat=raw_input("Enter your choice :")
+                if int(self.userseat) > 20 or self.srv1[int(self.userseat)] =="B":
+                    print "Sorry !! Seat Already booked !!!"
+                    print self.line
+                    self.iReserve()
+                else:
+                    self.srv1[int(self.userseat) -1 ]=self.userseat.replace(self.userseat,"B")
+                print "Seat Booked Successfully !!!"
+                print self.srv1
+                self.HomeMenu()
+            else:
+                print "Sorry !!! Login first"
+                self.HomeMenu()
 
         def iCancel(self):
             print "Cancel"
