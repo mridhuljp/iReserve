@@ -1,5 +1,7 @@
 class Reserve(object):
     UsersTable={}
+    srv1 =[]
+    srv1.extend(range(1,21))
     def __init__(self):
         self.line="=" * 25
 
@@ -74,15 +76,35 @@ class Reserve(object):
             self.iLogin()
         elif menuChoice == "2":
             self.iSignup()
-        elif menuChoice =="3":
+        elif menuChoice =="4":
             exit()
-        elif menuChoice="4":
+        elif menuChoice=="3":
             self.iReserve()
         else:
             print "Option Invalid !!!!"
             self.HomeMenu()
 
+
     def iReserve(self):
+
+        print self.line
+        print self.
+        print self.srv1
+        print self.line
+        print "Legend : 'B' - Booked Seat . 'R' - Reserved Seat"
+        print self.line
+        self.userseat=raw_input("Enter your choice :")
+        if int(self.userseat) > 20 or self.srv1[int(self.userseat)] =="B":
+            print "Sorry !! Seat Already booked !!!"
+            print self.line
+            self.iReserve()
+        else:
+            self.srv1[int(self.userseat) -1 ]=self.userseat.replace(self.userseat,"B")
+        print "Seat Booked Successfully !!!"
+        print self.srv1
+        self.HomeMenu()
+
+
         def iBook(self):
             print "Book !!!"
 
@@ -95,12 +117,12 @@ class Reserve(object):
         print "1. Book : "
         print "2. Cancel: "
         print "3. List : "
-        self.iResMenu=raw_input("Enter option : ")
-        if self.iResMenu == 1:
+        self.iResMenu=str(raw_input("Enter option : "))
+        if self.iResMenu == "1":
             iBook(self)
-        elif self.iResMenu == 2:
+        elif self.iResMenu == "2":
             iCancel(self)
-        elif self.iResMenu == 3:
+        elif self.iResMenu == "3":
             iList(self)
         else:
             print "Invalid Option Selected "
