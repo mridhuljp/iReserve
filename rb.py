@@ -1,7 +1,7 @@
-dict={}
-val="sss"
-vel="qqq"
-
-dict[val]=vel
-
-print dict
+l=[]
+l.extend(range(1,21))
+print len(l)
+print l
+seat=raw_input("Seat : ")
+l[int(seat)]="B"
+print l
